@@ -1,0 +1,20 @@
+extends layout.pug
+
+block entete
+    h1 All Enclos :
+    ul
+        each Enclos in Encl
+            h2
+                - var URL = '/Find_Enclos/' + Enclos.id
+                a(class='button' href=URL) #{Enclos.Title}
+    
+    
+block content
+    h2
+        .row
+            .col-md-6
+                a(href='/EnclosCreation') Add an Enclos
+    h2
+        .row
+            .col-md-6
+                 a(href='/') Return

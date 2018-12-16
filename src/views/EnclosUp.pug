@@ -1,0 +1,18 @@
+extends layout.pug
+
+block entete
+    h2 Update an Enclos :
+
+    - var URL = '/Update_Enclos/' + id
+    form(method='POST' action=URL)
+        div.form-group
+            label(for='Title') Nom:
+            input#Title.form-control(type='text', placeholder='Title' name='Title')
+        div.form-group
+            label(for='Size') Size:
+            input#Size.form-control(type='number', placeholder='Size' name='Size')
+        button.btn.btn-primary(type='submit') Upgrade
+
+block content
+    h2 
+        a(href= '/Find_Enclos') Return

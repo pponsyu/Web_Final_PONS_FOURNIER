@@ -1,0 +1,33 @@
+extends layout.pug
+
+block entete
+    h1 Details of  #{Encl.Title} :
+
+    .main.container
+        .row
+            .col-md-6
+                h2 Size : #{Encl.Size}
+            .col-md-6
+                - var UpdateURL = '/EnclosUpdate/' + Encl.id
+                - var DeleteURL = '/Delete_Enclos/' + Encl.id
+                .row
+                    h2
+                        .col-md-6
+                            a(href=UpdateURL) Update
+                        .col-md-6
+                            a(href=DeleteURL) Delete
+
+        .row
+            h1 All Monkeys in Enclos :
+        .row
+            ul
+                each Monkey in Monkey_tab
+                    .row
+                        .col-md-12
+                            h2
+                                - var URL = '/Find_Monkey/' + Monkey.id
+                                a(href=URL) #{Monkey.Name}
+
+block content
+    h2 
+        a(href= '/Find_Enclos') Return 

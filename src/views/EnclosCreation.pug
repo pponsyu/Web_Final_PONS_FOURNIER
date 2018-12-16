@@ -1,0 +1,17 @@
+extends layout.pug
+
+block entete
+    h2 Add a new Enclos :
+
+    form(method='POST' action='/Add_Enclos')
+        div.form-group
+            label(for='Title') Title:
+            input#Title.form-control(type='text', placeholder='Title' name='Title')
+        div.form-group
+            label(for='Size') Size:
+            input#Size.form-control(type='number', placeholder='Size' name='Size')
+        button.btn.btn-primary(type='submit') Submit an Enclos
+
+block content
+    h2 
+        a(href= '/Find_Enclos') Return

@@ -1,0 +1,28 @@
+extends layout.pug
+
+block entete
+    h2 Add a new Monkey :
+
+    form(method='POST' action='/Add_Monkey')
+        div.form-group
+            label(for='Name') Name:
+            input#Name.form-control(type='text', placeholder='Name' name='Name')
+        div.form-group
+            label(for='Race') Race:
+            input#Race.form-control(type='text', placeholder='Ex : Chimpanzee' name='Race')
+        div.form-group
+            label(for='Age') Age:
+            input#Age.form-control(type='number', placeholder='Age' name='Age')
+        div.form-group
+            label(for='Weight') Weight:
+            input#Weight.form-control(type='text', placeholder='Weight' name='Weight')
+        div.form-group
+            label(for='Color') Color:
+            input#Color.form-control(type='text', placeholder='Color' name='Color')
+        button.btn.btn-primary(type='submit') Submit a Monkey
+
+
+block content
+    h2 
+        a(href= '/Find_Monkey') Retour
+    

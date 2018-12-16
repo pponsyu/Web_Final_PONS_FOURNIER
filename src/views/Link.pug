@@ -1,0 +1,16 @@
+extends layout.pug
+
+block entete
+    h2 Put Monkeys in Enclos :
+    
+block content
+    h1 All Enclos :
+    ul
+        each Enclos in Monk
+            h2
+                - var url = '/Link/' + id + '/' + Enclos.id
+                a(class='button' href= url) #{Enclos.Title}
+
+    h2 
+        a(href= '/Find_Enclos') Return
+                

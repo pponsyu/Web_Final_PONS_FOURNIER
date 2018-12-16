@@ -1,0 +1,28 @@
+extends layout.pug
+
+block entete
+    h1 Details of #{Monk.Name} :
+
+    .main.container
+            .row
+                .col-md-6
+                    h2 Age: #{Monk.Age}
+                    h2 Race: #{Monk.Race}
+                    h2 Weight: #{Monk.Weight}
+                    h2 Color: #{Monk.Color}
+                .col-md-6
+                    .row
+                    - var UpdateURL = '/MonkeyUpdate/' + Monk.id
+                    - var DeleteURL = '/Delete_Monkey/' + Monk.id
+                    - var LinkURL = '/Link/' + Monk.id
+                    h2
+                        .col-md-3
+                            a(href=UpdateURL) Update
+                        .col-md-3
+                            a(href=DeleteURL) Delete
+                        .col-md-3
+                            a(href=LinkURL) Link to an Enclos
+
+block content
+    h2 
+        a(href= '/Find_Monkey') Return 
