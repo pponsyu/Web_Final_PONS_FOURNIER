@@ -247,6 +247,22 @@ app.delete('/APIREST_Delete_Enclos', Routes.APIREST_deleteenclos)
 
 app.delete('/APIREST_Delete_Enclos/:id', Routes.APIREST_deleteenclosid)
 
+//Link
+app.get('/APILink/:id1/:id2', function (req, res) {
+    models.Enclos.findOne({ where: { id: req.params.id2 } })
+        .then((Enclos) => {
+            models.Monkey.findOne({ where: { id: req.params.id1 } })
+                .then((Monkey) => {
+                    Enclos.addMonkeys(Monkey).then(() => {
+                        res.json({ Monk: Monkey })
+                    })
+                })
+        })
+        .catch((err) => {
+            res.json(err)
+        })
+})
+
 // Synchronize models
 models.sequelize.sync().then(function () {
     /**

@@ -121,7 +121,9 @@ exports.APIREST_findenclosid = (req, res) => {
         where: { id: req.params.id }
     })
         .then((Enclos) => {
-            res.send(Enclos);
+            Enclos.getMonkeys().then(associatedTasks => {
+                res.json({ Encl: Enclos, Monkey_tab: associatedTasks })
+            })
         })
         .catch((err) => {
             res.json(err)
