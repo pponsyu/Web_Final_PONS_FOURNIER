@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
         Name: DataTypes.STRING,
         Race: DataTypes.STRING,
         Age: DataTypes.REAL,
-        Weight: DataTypes.INTEGER,
+        Weight: DataTypes.FLOAT,
         Color: DataTypes.STRING
     });
 
